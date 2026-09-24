@@ -12,6 +12,7 @@ Amro Kamal~Mohamed Abbas, Evgenia Rusak, Kushal Tirumala, Wieland Brendel,
 \newblock Effective pruning of web-scale datasets based on complexity of
   concept clusters.
 \newblock In \emph{International Conference on Learning Representations}, 2024.
+\newblock \doi{10.48550/arXiv.2401.04578}.
 
 \bibitem[Asano et~al.(2021)Asano, Rupprecht, Zisserman, and Vedaldi]{pass}
 Yuki Asano, Christian Rupprecht, Andrew Zisserman, and Andrea Vedaldi.
@@ -20,6 +21,7 @@ Yuki Asano, Christian Rupprecht, Andrew Zisserman, and Andrea Vedaldi.
 \newblock In Joaquin Vanschoren and Serena Yeung, editors, \emph{Proceedings of
   the Neural Information Processing Systems Track on Datasets and Benchmarks},
   volume~1, 2021.
+\newblock \doi{10.48550/arXiv.2109.13228}.
 
 \bibitem[Assran et~al.(2023)Assran, Balestriero, Duval, Bordes, Misra,
   Bojanowski, Vincent, Rabbat, and Ballas]{assran2210hidden}
@@ -27,6 +29,7 @@ Mahmoud Assran, Randall Balestriero, Quentin Duval, Florian Bordes, Ishan
   Misra, Piotr Bojanowski, Pascal Vincent, Michael Rabbat, and Nicolas Ballas.
 \newblock The hidden uniform cluster prior in self-supervised learning.
 \newblock In \emph{International Conference on Learning Representations}, 2023.
+\newblock \doi{10.48550/arXiv.2210.07277}.
 
 \bibitem[Azizi et~al.(2023)Azizi, Kornblith, Saharia, Norouzi, and
   Fleet]{azizi2023synthetic}
@@ -35,13 +38,15 @@ Shekoofeh Azizi, Simon Kornblith, Chitwan Saharia, Mohammad Norouzi, and
 \newblock Synthetic data from diffusion models improves {ImageNet}
   classification.
 \newblock \emph{Transactions on Machine Learning Research}, 2023.
+\newblock \doi{10.48550/arXiv.2304.08466}.
 
 \bibitem[Bai et~al.(2023)Bai, Liu, Wang, Hao, Feng, Chu, and Hu]{colt}
-Jianhong Bai, Zuozhu Liu, Hualiang Wang, Jin Hao, Yan Feng, Huanpeng Chu, and
+Jianhong Bai, Zuozhu Liu, Hualiang Wang, Jin Hao, Yang Feng, Huanpeng Chu, and
   Haoji Hu.
 \newblock On the effectiveness of out-of-distribution data in self-supervised
   long-tail learning.
 \newblock In \emph{International Conference on Learning Representations}, 2023.
+\newblock \doi{10.48550/arXiv.2306.04934}.
 
 \bibitem[Baradad et~al.(2021)Baradad, Wulff, Wang, Isola, and
   Torralba]{baradad2021noise}
@@ -50,6 +55,7 @@ Manel Baradad, Jonas Wulff, Tongzhou Wang, Phillip Isola, and Antonio Torralba.
 \newblock In M.~Ranzato, A.~Beygelzimer, Y.~Dauphin, P.S. Liang, and
   J.~Wortman~Vaughan, editors, \emph{Advances in Neural Information Processing
   Systems}, volume~34, pages 2556--2569. Curran Associates, Inc., 2021.
+\newblock \doi{10.48550/arXiv.2106.05963}.
 
 \bibitem[Baradad et~al.(2022)Baradad, Chen, Wulff, Wang, Feris, Torralba, and
   Isola]{baradad2022procedural}
@@ -86,6 +92,7 @@ Ting Chen, Simon Kornblith, Mohammad Norouzi, and Geoffrey Hinton.
   the 37th International Conference on Machine Learning}, volume 119 of
   \emph{Proceedings of Machine Learning Research}, pages 1597--1607. PMLR,
   13--18 Jul 2020.
+\newblock \doi{10.48550/arXiv.2002.05709}.
 
 \bibitem[Fan et~al.(2024)Fan, Chen, Krishnan, Katabi, Isola, and
   Tian]{fan2024scaling}
@@ -106,11 +113,12 @@ Teofilo~F. Gonzalez.
 Guy Hacohen, Avihu Dekel, and Daphna Weinshall.
 \newblock Active learning on a budget: Opposite strategies suit high and low
   budgets.
-\newblock In Kamalika Chaudhuri, Stefanie Jegelka, Le~Song, Csaba Szepesvari,
-  Gang Niu, and Sivan Sabato, editors, \emph{Proceedings of the 39th
-  International Conference on Machine Learning}, volume 162 of
+\newblock In Kamalika Chaudhuri, Stefanie Jegelka, Le~Song, Csaba
+  Szepesv{\'a}ri, Gang Niu, and Sivan Sabato, editors, \emph{Proceedings of the
+  39th International Conference on Machine Learning}, volume 162 of
   \emph{Proceedings of Machine Learning Research}, pages 8175--8195. PMLR,
   17--23 Jul 2022.
+\newblock \doi{10.48550/arXiv.2202.02794}.
 
 \bibitem[He et~al.(2020)He, Fan, Wu, Xie, and Girshick]{he2020momentum}
 Kaiming He, Haoqi Fan, Yuxin Wu, Saining Xie, and Ross Girshick.
@@ -134,6 +142,7 @@ Ruifei He, Shuyang Sun, Xin Yu, Chuhui Xue, Wenqing Zhang, Philip Torr, Song
   Bai, and Xiaojuan Qi.
 \newblock Is synthetic data from generative models ready for image recognition?
 \newblock In \emph{International Conference on Learning Representations}, 2023.
+\newblock \doi{10.48550/arXiv.2210.07574}.
 
 \bibitem[Ho et~al.(2020)Ho, Jain, and Abbeel]{ho2020denoising}
 Jonathan Ho, Ajay Jain, and Pieter Abbeel.
@@ -142,6 +151,7 @@ Jonathan Ho, Ajay Jain, and Pieter Abbeel.
   Balcan, and Hsuan-Tien Lin, editors, \emph{Advances in Neural Information
   Processing Systems}, volume~33, pages 6840--6851. Curran Associates, Inc.,
   2020.
+\newblock \doi{10.48550/arXiv.2006.11239}.
 
 \bibitem[Jahanian et~al.(2022)Jahanian, Puig, Tian, and
   Isola]{jahanian2022generative}
@@ -149,6 +159,7 @@ Ali Jahanian, Xavier Puig, Yonglong Tian, and Phillip Isola.
 \newblock Generative models as a data source for multiview representation
   learning.
 \newblock In \emph{International Conference on Learning Representations}, 2022.
+\newblock \doi{10.48550/arXiv.2106.05258}.
 
 \bibitem[Jiang et~al.(2021)Jiang, Chen, Mortazavi, and Wang]{sdclr}
 Ziyu Jiang, Tianlong Chen, Bobak~J. Mortazavi, and Zhangyang Wang.
@@ -157,6 +168,7 @@ Ziyu Jiang, Tianlong Chen, Bobak~J. Mortazavi, and Zhangyang Wang.
   38th International Conference on Machine Learning}, volume 139 of
   \emph{Proceedings of Machine Learning Research}, pages 4927--4939. PMLR,
   18--24 Jul 2021.
+\newblock \doi{10.48550/arXiv.2106.02990}.
 
 \bibitem[Krause et~al.(2013)Krause, Stark, Deng, and Fei-Fei]{cars}
 Jonathan Krause, Michael Stark, Jia Deng, and Li~Fei-Fei.
@@ -168,7 +180,9 @@ Jonathan Krause, Michael Stark, Jia Deng, and Li~Fei-Fei.
 \bibitem[Krizhevsky(2009)]{krizhevsky2009learning}
 Alex Krizhevsky.
 \newblock Learning multiple layers of features from {Tiny Images}.
-\newblock Technical Report TR-2009, University of Toronto, 2009.
+\newblock Technical report, University of Toronto, 2009.
+\newblock URL
+  \url{https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf}.
 
 \bibitem[Kukleva et~al.(2023)Kukleva, B{\"o}hle, Schiele, Kuehne, and
   Rupprecht]{ts}
@@ -177,6 +191,7 @@ Anna Kukleva, Moritz B{\"o}hle, Bernt Schiele, Hilde Kuehne, and Christian
 \newblock Temperature schedules for self-supervised contrastive methods on
   long-tail data.
 \newblock In \emph{International Conference on Learning Representations}, 2023.
+\newblock \doi{10.48550/arXiv.2303.13664}.
 
 \bibitem[Li et~al.(2023)Li, Ling, Kar, Acuna, Kim, Kreis, Torralba, and
   Fidler]{li2023dreamteacher}
@@ -238,6 +253,7 @@ Chenlin Meng, Yutong He, Yang Song, Jiaming Song, Jiajun Wu, Jun-Yan Zhu, and
 \newblock {SDEdit}: Guided image synthesis and editing with stochastic
   differential equations.
 \newblock In \emph{International Conference on Learning Representations}, 2022.
+\newblock \doi{10.48550/arXiv.2108.01073}.
 
 \bibitem[Nguyen et~al.(2026)Nguyen, Li, Zheng, and
   Mirzasoleiman]{nguyen2026tada}
@@ -245,6 +261,7 @@ Dang Nguyen, Jiping Li, Jinghao Zheng, and Baharan Mirzasoleiman.
 \newblock Do we need all the synthetic data? {T}argeted image augmentation via
   diffusion models.
 \newblock In \emph{International Conference on Learning Representations}, 2026.
+\newblock \doi{10.48550/arXiv.2505.21574}.
 
 \bibitem[Nilsback and Zisserman(2008)]{flowers}
 Maria-Elena Nilsback and Andrew Zisserman.
@@ -265,6 +282,7 @@ Maxime Oquab, Timoth{\'e}e Darcet, Th{\'e}o Moutakanni, Huy Vo, Marc
   Armand Joulin, and Piotr Bojanowski.
 \newblock {DINO}v2: Learning robust visual features without supervision.
 \newblock \emph{Transactions on Machine Learning Research}, 2024.
+\newblock \doi{10.48550/arXiv.2304.07193}.
 
 \bibitem[Parkhi et~al.(2012)Parkhi, Vedaldi, Zisserman, and Jawahar]{pets}
 Omkar~M. Parkhi, Andrea Vedaldi, Andrew Zisserman, and C.~V. Jawahar.
@@ -304,6 +322,7 @@ Ozan Sener and Silvio Savarese.
 \newblock Active learning for convolutional neural networks: A core-set
   approach.
 \newblock In \emph{International Conference on Learning Representations}, 2018.
+\newblock \doi{10.48550/arXiv.1708.00489}.
 
 \bibitem[Sim{\'e}oni et~al.(2025)Sim{\'e}oni, Vo, Seitzer, Baldassarre, Oquab,
   Jose, Khalidov, Szafraniec, Yi, Ramamonjisoa, Massa, Haziza, Wehrstedt, Wang,
@@ -312,7 +331,7 @@ Ozan Sener and Silvio Savarese.
 Oriane Sim{\'e}oni, Huy~V. Vo, Maximilian Seitzer, Federico Baldassarre, Maxime
   Oquab, Cijo Jose, Vasil Khalidov, Marc Szafraniec, Seungeun Yi, Micha{\"e}l
   Ramamonjisoa, Francisco Massa, Daniel Haziza, Luca Wehrstedt, Jianyuan Wang,
-  Timoth{\'e}e Darcet, Th{\'e}o Moutakanni, L{\'e}o Sentana, Claire Roberts,
+  Timoth{\'e}e Darcet, Th{\'e}o Moutakanni, Leonel Sentana, Claire Roberts,
   Andrea Vedaldi, Jamie Tolan, John Brandt, Camille Couprie, Julien Mairal,
   Herv{\'e} J{\'e}gou, Patrick Labatut, and Piotr Bojanowski.
 \newblock {DINO}v3.
@@ -338,6 +357,7 @@ Yiyou Sun, Yifei Ming, Xiaojin Zhu, and Yixuan Li.
   39th International Conference on Machine Learning}, volume 162 of
   \emph{Proceedings of Machine Learning Research}, pages 20827--20840. PMLR,
   17--23 Jul 2022.
+\newblock \doi{10.48550/arXiv.2204.06507}.
 
 \bibitem[Tang et~al.(2023)Tang, Jia, Wang, Phoo, and Hariharan]{tang2023dift}
 Luming Tang, Menglin Jia, Qianqian Wang, Cheng~Perng Phoo, and Bharath
@@ -370,6 +390,7 @@ Yonglong Tian, Lijie Fan, Phillip Isola, Huiwen Chang, and Dilip Krishnan.
 Brandon Trabucco, Kyle Doherty, Max Gurinas, and Ruslan Salakhutdinov.
 \newblock Effective data augmentation with diffusion models.
 \newblock In \emph{International Conference on Learning Representations}, 2024.
+\newblock \doi{10.48550/arXiv.2302.07944}.
 
 \bibitem[Wang et~al.(2023)Wang, Montoya, Munechika, Yang, Hoover, and
   Chau]{diffusiondb}
@@ -395,6 +416,8 @@ Nyla Worker and Bhumin Pathak.
 \newblock Build custom synthetic data generation pipelines with {Omniverse
   Replicator}.
 \newblock NVIDIA Technical Blog, June 2022.
+\newblock URL
+  \url{https://developer.nvidia.com/blog/build-custom-synthetic-data-generation-pipelines-with-omniverse-replicator/}.
 
 \bibitem[Yehuda et~al.(2022)Yehuda, Dekel, Hacohen, and
   Weinshall]{yehuda2022covering}
@@ -412,6 +435,7 @@ Sihyun Yu, Sangkyung Kwak, Huiwon Jang, Jongheon Jeong, Jonathan Huang, Jinwoo
 \newblock Representation alignment for generation: Training diffusion
   transformers is easier than you think.
 \newblock In \emph{International Conference on Learning Representations}, 2025.
+\newblock \doi{10.48550/arXiv.2410.06940}.
 
 \bibitem[Zang et~al.(2024)Zang, Luo, Wang, Zhang, Wang, Li, and
   You]{zang2024diffaug}
@@ -424,5 +448,6 @@ Zelin Zang, Hao Luo, Kai Wang, Panpan Zhang, Fan Wang, Stan~Z. Li, and Yang
   \emph{Proceedings of the 41st International Conference on Machine Learning},
   volume 235 of \emph{Proceedings of Machine Learning Research}, pages
   58174--58196. PMLR, 21--27 Jul 2024.
+\newblock \doi{10.48550/arXiv.2309.07909}.
 
 \end{thebibliography}
