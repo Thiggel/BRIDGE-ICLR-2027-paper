@@ -185,6 +185,9 @@ The source-regime comparison covers source-matched SimCLR, TS, SDCLR and \method
 \input{tables/main_vits_objectives}
 \paragraph{Pre-training objectives and end-to-end adaptation.} Four objectives run paired on ViT-S under their reference recipes and one repair budget, and \method\ raises the seven-task linear-probe average of each, by 2.0 points for SimCLR, 2.8 for MoCo v3 and 2.2 for DINO, and by 0.8 for MAE, inside seed variation. Under $k$NN the MoCo v3 average is unchanged to slightly lower, 33.0 against 32.8, while the MAE average rises 2.0 points. Of the 14 measurements per objective, 12 or 13 improve, and fine-grained targets gain most, up to 7.1 points on Pets for DINO. The same ResNet-50 representations improve after end-to-end adaptation, by 2.0 and 3.2 points of fine-tuning accuracy with 1 and 10 percent of the labels and by 2.4 mIoU on PASCAL VOC segmentation.
 
+\input{tables/main_diffaug}
+\paragraph{DiffAug.} DiffAug learns its diffusion generator from the ImageNet-100-LT source itself. Under the same five cycles it reaches seven-task averages of 11.3 by linear probe and 22.0 by $k$NN, 31.2 and 11.6 points below \method\ (Table~\ref{tab:main_diffaug}). Adding \method\ to DiffAug moves both averages by less than half a point, inside seed variation.
+
 \subsection{Ablations}
 \label{sec:ablations}
 \input{tables/main_ablation_combined}
