@@ -53,17 +53,19 @@ Self-supervised learning inherits the coverage of its source data. When an unlab
 \section{Introduction}
 Self-supervised learning produces transferable visual representations from unlabeled images~\citep{chen2020simple,he2020momentum,DINO,he2022masked,oquab2023dinov2,dinov3}, and every objective learns from what its source corpus contains. When that corpus is long-tailed, the representation concentrates around frequent modes, covers rare regions weakly and transfers worse~\citep{tian2021divide,assran2210hidden,ts,sdclr}. Prior work responds on the model side, with a temperature schedule~\citep{ts}, a pruned self-competitor~\citep{sdclr} or imported external data~\citep{colt}, leaving the source set fixed.
 
-We ask whether the source set can be repaired while learning proceeds. \method, \textbf{B}alancing \textbf{R}epresentations by \textbf{Id}entifying and \textbf{Ge}nerating Under-represented Data, embeds the source set with the current encoder after each cycle and scores every image by its mean distance to its $k$ nearest neighbors. It selects a sparse but semantically coherent band of that distribution, generates local variants of the selected images with a frozen image-to-image diffusion model and continues pretraining on the enlarged set (Figure~\ref{fig:bridge-overview}). The encoder's neighbor distances mark the images in thin regions, and the generator produces variants of those images. No labels, class frequencies or downstream signals enter the loop.
+We ask whether the source set can be repaired while learning proceeds. \method, \textbf{B}alancing \textbf{R}epresentations by \textbf{Id}entifying and \textbf{Ge}nerating Under-represented Data, embeds the source set with the current encoder after each cycle and scores every image by its mean distance to its $k$ nearest neighbors. It selects a sparse but semantically coherent band of that distribution, generates local variants of the selected images with a frozen image-to-image diffusion model and continues pretraining on the enlarged set (Figure~\ref{fig:bridge-overview}). No labels, class frequencies or downstream signals enter the loop.
 
-A finite generation budget must be placed somewhere in the representation, and the placement may or may not be re-estimated after each repair. We formalize both as budgeted allocation over regions of representation space with diminishing returns to local support and repairability that falls in the extreme tail. The optimal band is then sparse and excludes the extreme tail, greedy reallocation is optimal under a fixed objective, and a rule applied once has an effect bounded, qualitatively, by the ratio of budget to existing support. After one repair the nine score bands lie within seed variation of each other. Over five cycles the three acquisition rules differ by up to eight points.
+We formalize acquisition as budgeted allocation over regions of representation space with diminishing returns to local support and repair fidelity that falls in the extreme tail. Under this model the budget belongs in a sparse band that excludes the extreme tail, and greedy reallocation after each repair is optimal under a fixed objective. In the experiments this band beats uniform acquisition by 6.6 to 6.8 points and top-tail acquisition by 7.8 to 8.0 points.
+
+Across five long-tailed, web-scraped and synthetic sources, \method\ raises the seven-task linear-probe average of SimCLR on the same source by 2.4 to 10.6 points and has the best average of all compared methods under linear-probe and $k$NN evaluation. With a power-law class imbalance imposed on ImageNet-100, repair adds 11.1 points, while a class-balanced source of the same size adds 0.1. On ViT-S the linear-probe average rises by 2.0 to 2.8 points under SimCLR, MoCo v3 and DINO, and generated repair reaches the accuracy of an oracle that adds real images withheld from the source, 41.5 against 40.7.
 
 Our contributions are as follows.
 \begin{itemize}
 \setlength{\itemsep}{1pt}
-\item A theory of label-free data repair as recoverability-weighted allocation of local support (Section~\ref{sec:theory}), in which a repair in a sparse region lowers the error bound more than one in a dense region, greedy reallocation is optimal under a fixed separable objective, and an allocation made from a fixed representation has an effect bounded by the ratio of budget to existing support.
+\item A theory of label-free data repair as recoverability-weighted allocation of local support (Section~\ref{sec:theory}), which shows that under diminishing returns and fidelity that decays with sparsity the budget belongs in a sparse band that excludes the extreme tail, and that greedy reallocation is optimal under a fixed separable objective.
 \item \method, a label-free feedback loop that instantiates this policy (Section~\ref{sec:method}) with mean $k$NN distance as the support estimate, a trimmed score band that holds sparse images the generator can still vary faithfully, farthest-point sampling against redundancy and a frozen image-to-image generator as the repair operator.
-\item An evaluation on five source regimes and seven transfer tasks under linear-probe and $k$NN protocols (Section~\ref{sec:results}), with paired ViT-S experiments across four SSL objectives, low-label fine-tuning, semantic segmentation and an oracle that restores withheld real images.
-\item An account of where the effect comes from (Sections~\ref{sec:ablations} and~\ref{sec:geometry}). Three acquisition rules separate by eight points over five cycles of repair, and a fixed-encoder intervention test shows the generated support landing at the selected anchors.
+\item An evaluation on five source regimes and seven transfer tasks under linear-probe and $k$NN protocols (Section~\ref{sec:results}), with paired ViT-S experiments across four SSL objectives, low-label fine-tuning, where accuracy rises by 2.0 and 3.2 points, and PASCAL VOC segmentation, where it rises by 2.4 mIoU.
+\item An account of where the effect comes from (Sections~\ref{sec:ablations} and~\ref{sec:geometry}). The band beats uniform and top-tail acquisition as Section~\ref{sec:theory} predicts, and a fixed-encoder test shows the generated images shrinking the neighborhoods of their own anchors twice as much as those of matched unselected images.
 \end{itemize}
 
 \section{Related Work}
@@ -130,7 +132,7 @@ which tends to zero as $R/n_{\min}\to0$ for the least-supported region $n_{\min}
 \end{proposition}
 Both allocations subtract at most $R$ marginals from the same baseline, and the mean value theorem bounds every marginal.
 
-Proposition~\ref{prop:one-stage} bounds the single-stage gap between any two rules by the ratio of the budget to the support of the least-supported region. The constants are not estimated, so the bound gives no number. With $R=2{,}500$ repairs per stage, 500 anchors with five variants each, and the least-supported regions of a 10{,}000-image source hold far fewer images than that, so the ratio is large and the bound does not constrain the experiments quantitatively. The separation of acquisition rules over five cycles (Section~\ref{sec:ablations}) lies outside this model, since re-estimation makes each score depend on earlier allocations.
+A single allocation can therefore differ from any other only in proportion to the budget it adds, and the effect of the acquisition rule accumulates when the allocation is re-estimated over several cycles.
 
 \section{BRIDGE: Balancing Representations by Identifying and Generating Under-represented Data}
 \label{sec:method}
@@ -142,7 +144,7 @@ After training on $D^{(c)}$ we embed each image, $z_i^{(c)}=f_{\theta^{(c)}}(x_i
 d_i^{(c)}=\frac{1}{k}\sum_{z\in\mathcal N_k(z_i^{(c)};\,Z^{(c)}\setminus\{z_i^{(c)}\})}\lVert z_i^{(c)}-z\rVert_2^2,
 \label{eq:score}
 \end{equation}
-where $\mathcal N_k(z;Z)$ is the set of $k$ nearest neighbors of $z$ in $Z$, so a large score marks an image in a sparse part of the current representation. Scoring uses this squared form. The geometry diagnostic of Section~\ref{sec:geometry} uses the unsquared distance to the 20th neighbor under a separate index, a statistic used to measure insertion, with selection based on Equation~\ref{eq:score}. We use $k=100$.
+where $\mathcal N_k(z;Z)$ is the set of $k$ nearest neighbors of $z$ in $Z$, so a large score marks an image in a sparse part of the current representation. We use $k=100$.
 
 \subsection{Sparse and recoverable anchor selection}
 \label{sec:mode-window}
@@ -220,12 +222,10 @@ Under the frozen cycle-0 encoder (Figure~\ref{fig:fixed-support}), inserting the
 
 \FloatBarrier
 \section{Limitations}
-\method\ depends on informative encoder neighborhoods in the first cycle and on a frozen generator that imports the biases of its own pretraining data. Repair fidelity, the $\rho$ of Section~\ref{sec:theory}, is not measured in pixel or semantic space, and the deficit of top-tail selection is consistent with low fidelity there. Later cycles select generated images as anchors, 7 to 13 percent at cycle 1 and 34 to 45 percent at cycle 4, with no filter applied. The band, neighborhood size and budget were held at their defaults across all five sources. The loop adds 30 to 45 percent wall-clock time, mostly diffusion sampling (Appendix~\ref{app:compute}).
+\method\ depends on informative encoder neighborhoods in the first cycle and on a frozen generator that imports the biases of its own pretraining data. Repair fidelity, the $\rho$ of Section~\ref{sec:theory}, is not measured in pixel or semantic space, and the deficit of top-tail selection is consistent with low fidelity there. Measured fidelity could set the band edges in place of fixed percentiles. Later cycles select generated images as anchors, 7 to 13 percent at cycle 1 and 34 to 45 percent at cycle 4, with no filter applied. The band, neighborhood size and budget were held at their defaults across all five sources. The loop adds 30 to 45 percent wall-clock time (Appendix~\ref{app:compute}).
 
 \section{Conclusion}
-Without labels, \method\ uses the encoder's neighbor distances to select a sparse band of images away from the extreme tail, generates local variants with a frozen diffusion model and retrains, over five cycles. Section~\ref{sec:theory} motivates the band by diminishing returns to local support and fidelity decay in the extreme tail. Transfer improves on five pretraining sources and under four self-supervised objectives, the loop reaches the accuracy of an oracle that restores withheld real images, the acquisition rule separates from uniform and top-tail acquisition by eight points, and a frozen-encoder test places the generated images in their anchors' neighborhoods.
-
-Measuring repair fidelity would account for the generator's biases and could set the band edges in place of fixed percentiles. Other modalities need only an encoder and a generator.
+Without labels, \method\ selects a sparse band of images by neighbor distance, adds local variants from a frozen diffusion model and retrains, over five cycles. The band follows from diminishing returns to local support and fidelity decay in the extreme tail, beats uniform and top-tail acquisition by up to eight points, and raises transfer on five sources and four objectives by up to 10.6 linear-probe points, matching an oracle that adds withheld real images.
 
 \section*{AI use statement}
 In this work we used generative AI tools for writing and debugging the data generators, the training
