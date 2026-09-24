@@ -2,7 +2,7 @@
 \centering
 \small
 \setlength{\tabcolsep}{5pt}
-\caption{Fixed-encoder intervention test behind Figure~\ref{fig:fixed-support}. The cycle-0 encoder is frozen, every generated image of the run is inserted into the $k$NN index ($k=20$), and the same original images are queried before and after. Anchors are the images selected at cycle 0, matched images are paired one-to-one within class on initial radius and are never selected in any cycle. Radius change is relative to the initial radius, purity is the fraction of the 20 neighbors sharing the query label, and the last two columns are the anchor-minus-matched differences.}
+\caption{Fixed-encoder intervention test behind Figure~\ref{fig:fixed-support}, cycle-0 encoder, $k=20$. Generated images shrink the radius of their own anchors about twice as much as that of matched unselected images, and lower anchor purity less. The last two columns are anchor-minus-matched differences.}
 \label{tab:fixed-support}
 \begin{tabular}{lrrrrrr}
 \toprule

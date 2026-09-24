@@ -3,7 +3,7 @@
 \tiny
 \setlength{\tabcolsep}{2.6pt}
 \renewcommand{\arraystretch}{0.9}
-\caption{Imposed imbalance on ImageNet-100. A balanced source and a purposefully long-tailed source of the same expected size are compared with \method\ on the long-tailed source, under the linear-probe and $k$NN protocols on seven downstream tasks, mean $\pm$ standard deviation over three seeds. Both sources are pretrained with SimCLR under an identical schedule and differ only in the class distribution of the source. The shaded rows are \method\ and bold marks the best value in a column within each protocol. These three runs form one matched comparison and are trained separately from the five source regimes of Table~\ref{tab:main_transfer_linear}.}
+\caption{Imposed imbalance on ImageNet-100, mean $\pm$ standard deviation over three seeds. Balancing the classes changes SimCLR by 0.1 points, while \method\ on the long-tailed source adds 11.1 linear-probe and 7.3 $k$NN points.}
 \label{tab:main_controlled_imbalance}
 \begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{l l c c c c c c c c}

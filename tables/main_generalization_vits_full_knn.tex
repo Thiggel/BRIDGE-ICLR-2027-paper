@@ -2,7 +2,7 @@
 \centering
 \small
 \setlength{\tabcolsep}{4pt}
-\caption{Paired full-schedule ViT-S transfer on ImageNet-100-LT, with every downstream dataset reported separately. Both runs of each pair start from the same source checkpoint and receive the same number of post-branch optimizer updates. Four objectives span contrastive (SimCLR, MoCo v3), self-distillation (DINO) and masked-reconstruction (MAE) pretraining. The first three run five cycles of 100 epochs and MAE five of 80. Mean $\pm$ standard deviation over three seeds. $k$NN accuracy.}
+\caption{$k$NN accuracy of the paired ViT-S runs of Table~\ref{tab:main_generalization} on every task, mean $\pm$ standard deviation over three seeds. MAE runs five cycles of 80 epochs, the other objectives five of 100.}
 \label{tab:generalization-vits-full-knn}
 \begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{lccccccc}
